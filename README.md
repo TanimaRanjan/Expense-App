@@ -1,2 +1,1 @@
-Indecision App
 # Expense-App
