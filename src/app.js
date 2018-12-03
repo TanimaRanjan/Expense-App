@@ -3,16 +3,13 @@ import ReactDOM from 'react-dom'
 import {Provider } from 'react-redux'
 import AppRouter from './routers/AppRouter'
 import configureStore from './store/configureStore'
-
-
 import { addExpense, editExpense, removeExpense } from  './actions/expenses'
-import { setTextFilter, sortbyAmount, sortbyDate, setStartDate, setEndDate } from './actions/filters'
+// import { setTextFilter, sortbyAmount, sortbyDate, setStartDate, setEndDate } from './actions/filters'
 import  getVisibleExpenses  from './selectors/expense'
-
 
 import '../node_modules/normalize.css/normalize.css'
 import '../public/styles/styles.scss'
-import { deflateSync } from 'zlib';
+
 
 const store = configureStore();
 
