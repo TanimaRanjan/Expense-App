@@ -6,8 +6,9 @@
     "dev-server": "webpack-dev-server --mode development",
     "build": "webpack --mode production",
     "build:prod": "webpack -p --mode production --env production",
-    "start": "node index.js",
-    "test": "jest"
+    "start": "node server/server.js",
+    "test": "jest",
+    "heroku-postbuild" :"npm run build:prod"
   },
   "author": "Tanima Ranjan",
   "license": "ISC",
