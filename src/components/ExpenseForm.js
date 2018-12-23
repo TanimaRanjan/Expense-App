@@ -2,7 +2,7 @@ import 'react-dates/initialize';
 import React from 'react'
 import moment from 'moment'
 import { SingleDatePicker } from 'react-dates'
-import 'react-dates/lib/css/_datepicker.css'
+
 
 // import ThemedStyleSheet from 'react-with-styles/lib/ThemedStyleSheet';
 import uuid from 'uuid/v4'
