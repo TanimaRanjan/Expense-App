@@ -37,7 +37,12 @@ test('Should set description on input change', () => {
 })
 
 
-// test('Should set Note on text area change', () => {
-//     const wrapper = shallow(<ExpenseForm />)
-//     wrapper.find('input')
-// })
+test('Should set Note on text area change', () => {
+    const value = 'New Note'
+    const wrapper = shallow(<ExpenseForm />)
+    wrapper.find('textarea').simulate('change', {
+        target: {value}
+    })
+    expect(wrapper.state('note')).toBe(value)
+
+})
