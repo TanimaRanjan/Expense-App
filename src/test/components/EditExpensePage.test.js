@@ -10,7 +10,11 @@ beforeEach(() => {
     const editExpense = jest.fn();
     const removeExpense = jest.fn();
     const history = { push : jest.fn()}
-    const wrapper = shallow(<EditExpensePage editExpense={editExpense} removeExpense={removeExpense} history={history} />)
+    const wrapper = shallow(<EditExpensePage 
+            editExpense={editExpense} 
+            removeExpense={removeExpense} 
+            history={history} 
+            expense={expenses[2]}/>)
 })
 test('Should render AddExpensePage properly', () => {
     // expect(wrapper).toMatchSnapshot()
