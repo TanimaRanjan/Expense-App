@@ -22,7 +22,7 @@ test('Should render EditExpensePage properly', () => {
 
 test('Should render EditExpensePage properly', () => {
     wrapper.find('ExpenseForm').prop('onSubmit')(expenses[2])
-     expect(wrapper).toMatchSnapshot()
+     expect(history.push).toHaveBeenLastCalledWith('/')
 })
 
 test('Should render EditExpensePage properly', () => {
