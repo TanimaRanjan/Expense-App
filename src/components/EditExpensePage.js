@@ -19,7 +19,6 @@ export class EditExpensePage extends React.Component {
 }
 
 const EditExpensePage = (props) =>  {
-    
     return (
     <div>
         <ExpenseForm 
@@ -40,7 +39,7 @@ const EditExpensePage = (props) =>  {
 
 const mapDistpatchToProp = () => {
     return {
-        editExpense: 
+        editExpense: (expense)
     }
     
 }
