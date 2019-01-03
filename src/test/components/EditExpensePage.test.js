@@ -23,6 +23,7 @@ test('Should render EditExpensePage properly', () => {
 test('Should render EditExpensePage properly', () => {
     wrapper.find('ExpenseForm').prop('onSubmit')(expenses[2])
      expect(history.push).toHaveBeenLastCalledWith('/')
+     expect(editExpense).toHaveBeenLastCalledWith(expenses[2].id, expenses[2])
 })
 
 test('Should render EditExpensePage properly', () => {
