@@ -21,10 +21,11 @@ test('Should render EditExpensePage properly', () => {
 })
 
 test('Should render EditExpensePage properly', () => {
-    // expect(wrapper).toMatchSnapshot()
+    wrapper.find('ExpenseForm').prop('onSubmit')(expenses[2])
+     expect(wrapper).toMatchSnapshot()
 })
 
 test('Should render EditExpensePage properly', () => {
-    // expect(wrapper).toMatchSnapshot()
+     expect(wrapper).toMatchSnapshot()
 })
 
