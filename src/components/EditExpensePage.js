@@ -19,7 +19,7 @@ export class EditExpensePage extends React.Component {
 }
 
 const EditExpensePage = (props) =>  {
-    console.log(props);
+    
     return (
     <div>
         <ExpenseForm 
