@@ -27,6 +27,10 @@ test('Should render EditExpensePage properly', () => {
 })
 
 test('Should render EditExpensePage properly', () => {
-     expect(wrapper).toMatchSnapshot()
+    wrapper.find('button').simulate('click')
+    expect(history.push).toHaveBeenLastCalledWith('/')
+    expect(removeExpense).toHaveBeenLastCalledWith({
+        id:expenses[2].id}
+        )
 })
 
