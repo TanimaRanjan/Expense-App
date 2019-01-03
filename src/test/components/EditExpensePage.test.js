@@ -16,13 +16,15 @@ beforeEach(() => {
             history={history} 
             expense={expenses[2]}/>)
 })
-test('Should render AddExpensePage properly', () => {
+test('Should render EditExpensePage properly', () => {
     // expect(wrapper).toMatchSnapshot()
 })
 
-
-test('Should handle OnSubmit ', () => {
-    // wrapper.find('ExpenseForm').prop('onSubmit')(expenses[1])
-    // expect(history.push).toHaveBeenLastCalledWith('/')
-    // expect(addExpense).toHaveBeenLastCalledWith(expenses[1])
+test('Should render EditExpensePage properly', () => {
+    // expect(wrapper).toMatchSnapshot()
 })
+
+test('Should render EditExpensePage properly', () => {
+    // expect(wrapper).toMatchSnapshot()
+})
+
