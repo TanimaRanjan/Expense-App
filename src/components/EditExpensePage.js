@@ -8,7 +8,7 @@ import { editExpense , removeExpense} from '../actions/expenses';
 
 export class EditExpensePage extends React.Component {
     onSubmit = ( expense ) => {
-        this.props.dispatch(editExpense(this.props.expense.id, expense))
+        this.props.editExpense(this.props.expense.id, expense)
         this.props.history.push('/')
     }
 
@@ -31,7 +31,7 @@ export class EditExpensePage extends React.Component {
 
 
 const mapDistpatchToProps = (dispatch) => ({
-        editExpense: (expense)
+        editExpense: (id, expense) => dispatch(editExpense(id, expense))
 })
 
 const mapStateToProp = (state, props) => ({
