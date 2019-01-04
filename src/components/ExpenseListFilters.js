@@ -5,7 +5,7 @@ import { setTextFilter, sortbyAmount, sortbyDate, setStartDate, setEndDate } fro
 import { start } from 'repl';
 
 
-export class ExpenseListFilter extends React.Component {
+export class ExpenseListFilters extends React.Component {
     state = {
         calendarFocused : null
     }
@@ -60,4 +60,4 @@ const mapDispatchToProps = (dispatch) => ({
     sortbyAmount: () => dispatch(sortbyAmount())
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(ExpenseListFilter)
+export default connect(mapStateToProps, mapDispatchToProps)(ExpenseListFilters)

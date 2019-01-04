@@ -3,7 +3,7 @@
 exports[`Should render ExpenseDashBoardPage  1`] = `
 <div>
   This is from my Dashboard Components
-  <Connect(ExpenseListFilter) />
+  <Connect(ExpenseListFilters) />
   <Connect(ExpenseList) />
 </div>
 `;

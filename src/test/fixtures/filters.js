@@ -16,4 +16,4 @@ const altFilters = {
     endData: moment(0).add(3, 'days')
 }
 
-export { filter, altFilters}
+export { filters, altFilters}
