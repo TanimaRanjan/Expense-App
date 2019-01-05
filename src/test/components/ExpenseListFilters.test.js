@@ -27,5 +27,8 @@ test('Should render ExpenseListFilter correctly ', () => {
 })
 
 test('Should render ExpenseListFilter with alt data correctly ', () => {
+    wrapper.setProps({
+        filters : altFilters
+    })
     expect(wrapper).toMatchSnapshot()
 })
