@@ -40,3 +40,39 @@ test('Should handle text change ExpenseListFilter correctly ', () => {
     })
     expect(setTextFilter).toHaveBeenLastCalledWith(value)
 })
+
+test('Should sort by date in  ExpenseListFilter correctly ', () => {
+    const value = 'date'
+    wrapper.setProps({
+        filters : altFilters
+    })
+    wrapper.find('select').simulate('change', {
+        target: { value  }
+    })
+    expect(sortByDate).toHaveBeenCalled()
+})
+
+
+test('Should sort by date in  ExpenseListFilter correctly ', () => {
+    const value = 'amount'
+    wrapper.setProps({
+        filters : filters
+    })
+    wrapper.find('select').simulate('change', {
+        target: { value  }
+    })
+    expect(sortByAmount).toHaveBeenCalled()
+})
+
+
+test('Should handle date change  ', () => {
+    const startDate = moment(0).add(4, 'years')
+    const endDate = moment(0).add(8, 'years')
+    wrapper.find('DateRangePicker').props('onDateChange')({startDate, endDate})
+    expect(setStartDate).toHaveBeenLastCalledWith(startDate)
+    expect(setEndDate).toHaveBeenLastCalledWith(endDate)
+})
+
+test('Should handle date focus  ', () => {
+    expect(wrapper).toMatchSnapshot()
+})
