@@ -2,6 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { ExpenseListFilters } from '../../components/ExpenseListFilters'
 import { filters, altFilters } from '../fixtures/filters'
+import moment from 'moment'
 
 let setTextFilter, sortByDate, sortByAmount, setStartDate, setEndDate, wrapper
 
@@ -68,11 +69,11 @@ test('Should sort by date in  ExpenseListFilter correctly ', () => {
 test('Should handle date change  ', () => {
     const startDate = moment(0).add(4, 'years')
     const endDate = moment(0).add(8, 'years')
-    wrapper.find('DateRangePicker').props('onDateChange')({startDate, endDate})
+    wrapper.find('DateRangePicker').prop('onDateChange')({startDate, endDate})
     expect(setStartDate).toHaveBeenLastCalledWith(startDate)
     expect(setEndDate).toHaveBeenLastCalledWith(endDate)
 })
 
 test('Should handle date focus  ', () => {
-    expect(wrapper).toMatchSnapshot()
+    e
 })
