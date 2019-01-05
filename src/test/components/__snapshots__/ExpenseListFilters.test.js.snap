@@ -289,28 +289,3 @@ exports[`Should render ExpenseListFilter with alt data correctly  1`] = `
   />
 </div>
 `;
-
-exports[`Should sort by date in  ExpenseListFilter correctly  1`] = `
-<div>
-  <input
-    onChange={[Function]}
-    type="text"
-    value=""
-  />
-  <select
-    onChange={[Function]}
-    value="date"
-  >
-    <option
-      value="date"
-    >
-      Date
-    </option>
-    <option
-      value="amount"
-    >
-      Amount
-    </option>
-  </select>
-</div>
-`;
