@@ -1,8 +1,7 @@
-import 'react-dates/initialize';
+
 import React from 'react'
 import moment from 'moment'
 import { SingleDatePicker } from 'react-dates'
-
 
 // import ThemedStyleSheet from 'react-with-styles/lib/ThemedStyleSheet';
 import uuid from 'uuid/v4'
@@ -23,22 +22,25 @@ class ExpenseForm extends React.Component {
         const description = e.target.value
         this.setState(() => ( {description }))
     }
+
     onNoteChange = (e) => {
         const note = e.target.value
         this.setState(() => ({note })) 
     }
+
     onAmountChange = (e) => {
         const amount = e.target.value
         if(!amount || amount.match(/^\d{1,}(\.\d{0,2})?$/)) {
             this.setState(() => ({ amount })) 
         }
     }
+
     onDateChange = (createdAt) => {
         if(createdAt) {
             this.setState(() => ({ createdAt }))
         }
-        
     }
+
     onFocusChange = ({focused}) => {
         this.setState(() => ({calendarFocused : focused}))
     }
@@ -90,10 +92,10 @@ class ExpenseForm extends React.Component {
                       />
     
                     <textarea 
-                        placeholder="Add a note for youe expense (optional)"
+                        placeholder="Add a note for your expense (optional)"
                         value={this.state.note}
                         onChange={this.onNoteChange}
-                        >
+                    >
                     </textarea>
                     <button>Add Expense</button>
                     </form>
