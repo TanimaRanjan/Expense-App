@@ -24,3 +24,28 @@ exports[`Should render ExpenseListFilter correctly  1`] = `
   </select>
 </div>
 `;
+
+exports[`Should render ExpenseListFilter with alt data correctly  1`] = `
+<div>
+  <input
+    onChange={[Function]}
+    type="text"
+    value="bills"
+  />
+  <select
+    onChange={[Function]}
+    value="amount"
+  >
+    <option
+      value="date"
+    >
+      Date
+    </option>
+    <option
+      value="amount"
+    >
+      Amount
+    </option>
+  </select>
+</div>
+`;
