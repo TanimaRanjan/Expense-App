@@ -109,7 +109,7 @@ exports[`Should render Expense From Correctly  1`] = `
     />
     <textarea
       onChange={[Function]}
-      placeholder="Add a note for youe expense (optional)"
+      placeholder="Add a note for your expense (optional)"
       value=""
     />
     <button>
@@ -228,7 +228,7 @@ exports[`Should render ExpenseForm with expense data 1`] = `
     />
     <textarea
       onChange={[Function]}
-      placeholder="Add a note for youe expense (optional)"
+      placeholder="Add a note for your expense (optional)"
       value="Credit Card"
     />
     <button>
@@ -347,7 +347,7 @@ exports[`Should render error for invalid for submission 1`] = `
     />
     <textarea
       onChange={[Function]}
-      placeholder="Add a note for youe expense (optional)"
+      placeholder="Add a note for your expense (optional)"
       value=""
     />
     <button>
@@ -469,7 +469,7 @@ exports[`Should render error for invalid for submission 2`] = `
     />
     <textarea
       onChange={[Function]}
-      placeholder="Add a note for youe expense (optional)"
+      placeholder="Add a note for your expense (optional)"
       value=""
     />
     <button>
