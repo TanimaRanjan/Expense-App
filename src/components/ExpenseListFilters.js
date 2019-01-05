@@ -63,7 +63,6 @@ const mapStateToProps = (state) => {
     return {
         filters : state.filters
     }
-
 }
 
 const mapDispatchToProps = (dispatch) => ({
