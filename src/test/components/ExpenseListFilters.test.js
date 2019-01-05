@@ -32,3 +32,11 @@ test('Should render ExpenseListFilter with alt data correctly ', () => {
     })
     expect(wrapper).toMatchSnapshot()
 })
+
+test('Should handle text change ExpenseListFilter correctly ', () => {
+    const value = 'rent'
+    wrapper.find('input').simulate('change', {
+        target: { value  }
+    })
+    expect(setTextFilter).toHaveBeenLastCalledWith(value)
+})
