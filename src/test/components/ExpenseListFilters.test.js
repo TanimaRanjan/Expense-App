@@ -25,3 +25,7 @@ beforeEach(() => {
 test('Should render ExpenseListFilter correctly ', () => {
     expect(wrapper).toMatchSnapshot()
 })
+
+test('Should render ExpenseListFilter with alt data correctly ', () => {
+    expect(wrapper).toMatchSnapshot()
+})
