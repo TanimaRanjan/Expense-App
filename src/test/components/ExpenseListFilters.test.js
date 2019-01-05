@@ -69,7 +69,7 @@ test('Should sort by date in  ExpenseListFilter correctly ', () => {
 test('Should handle date change  ', () => {
     const startDate = moment(0).add(4, 'years')
     const endDate = moment(0).add(8, 'years')
-    wrapper.find('DateRangePicker').prop('onDateChange')({startDate, endDate})
+    wrapper.find('DateRangePicker').prop('onDatesChange')({startDate, endDate})
     expect(setStartDate).toHaveBeenLastCalledWith(startDate)
     expect(setEndDate).toHaveBeenLastCalledWith(endDate)
 })
