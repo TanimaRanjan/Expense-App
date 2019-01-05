@@ -2,7 +2,6 @@ import React from 'react'
 import { connect} from 'react-redux'
 import { DateRangePicker } from 'react-dates'
 import { setTextFilter, sortbyAmount, sortbyDate, setStartDate, setEndDate } from '../actions/filters';
-import { start } from 'repl';
 
 
 export class ExpenseListFilters extends React.Component {
@@ -47,7 +46,7 @@ export class ExpenseListFilters extends React.Component {
                 focusedInput={this.state.calendarFocused}
                 onFocusChange={this.onFocusChange}
                 showClearDates={true}
-                numberOfMonths{1}
+                numberOfMonths={1}
                 isOutsideRange={() => false}
                 />
         </div>
