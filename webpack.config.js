@@ -40,7 +40,7 @@ module.exports = (env) => {
             publicPath: '/scripts/',
             historyApiFallback: true
         },
-        devtool:'source-map'
+        devtool:isProduction ? 'source-map' : 'cheap-module-eval-source-map'
     }
 }
 
