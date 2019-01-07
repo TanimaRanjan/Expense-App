@@ -1,8 +1,12 @@
 // Accessing the path library using require(path)
 const path = require('path') 
 
+// Webpack plugin to extract CSS
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+
 module.exports = (env) => {
     const isProduction = env === "production"
+    const CSSExtract = new ExtractTextPlugin('styles.css')
 
     return {
         entry: ['babel-polyfill', './src/app.js'], 
@@ -29,10 +33,20 @@ module.exports = (env) => {
                 }, 
                 {
                     test: /\.s?css$/, 
-                    use: ["style-loader", "css-loader", "sass-loader"]
+                    use: CSSExtract.extract({
+                        use: [
+                                'css-loader', 
+                                'sass-loader'
+                            
+                        ]
+                    })
                 }
         ]
         },
+        plugins : [
+            CSSExtract
+        ],
+
         devServer: {
             // Absolute path that lets devserver know where folder that you are trying to server up lives
             contentBase: path.resolve(__dirname, 'public'),
