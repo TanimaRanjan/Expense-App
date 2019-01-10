@@ -12,31 +12,24 @@ import '../public/styles/styles.scss'
 import 'react-dates/lib/css/_datepicker.css'
 
 import './firebase/firebase'
+import './playground/promises'
 
 const store = configureStore();
 
-// const state = store.getState()
+const state = store.getState()
 
-
-
-store.subscribe(() => {
-    const state = store.getState();
-    const visibleExpense = getVisibleExpenses(state.expenses, state.filters)
-    console.log(visibleExpense)
-    // console.log(state.filters)
-})
-
-store.dispatch(addExpense({description:"Water Bill", amount:5000, note:"Water bill for Nov 2018", createdAt:2000}))
-store.dispatch(addExpense({description:"Gas Bill", amount:3500, note:"Gas bill for Nov 2018", createdAt:8100}))
-store.dispatch(addExpense({description:"Food Bill", amount:4509, note:"Gas bill for Nov 2018", createdAt:7100}))
-
+// store.subscribe(() => {
+//     const state = store.getState();
+//     const visibleExpense = getVisibleExpenses(state.expenses, state.filters)
+//     console.log(visibleExpense)
+//     // console.log(state.filters)
+// })
 
 const jsx = (
     <Provider store={store}>
     <AppRouter />
     </Provider>
 )
-
 
 ReactDOM.render(jsx, document.getElementById('app'));
 
