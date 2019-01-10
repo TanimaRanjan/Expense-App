@@ -12,5 +12,19 @@ const config = {
   firebase.initializeApp(config)
 
   firebase.database().ref().set({
-      name: 'Tanima Ranjan'
+      name: 'Tanima Ranjan',
+      age: 36,
+      isSingle: false,
+      location : {
+          city: 'New York',
+          country: 'United States'
+      }
+  })
+
+  firebase.database().ref('age').set(35)
+  firebase.database().ref('location/city').set('Brooklyn')
+
+  firebase.database().ref('attributes').set({
+      height:5.1,
+      weight:133
   })
