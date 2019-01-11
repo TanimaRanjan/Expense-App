@@ -13,6 +13,11 @@ const config = {
 
 const database = firebase.database()
 
+
+database.ref('expenses').on('child_removed', (snapshot) => {
+    console.log(snapshot.key, snaphot.val())
+})
+
 //   database.ref().set({
 //       name: 'Tanima Ranjan',
 //       age: 36,
@@ -193,19 +198,22 @@ const database = firebase.database()
 // })
 
 
-database.ref('expenses')
-.on('value', ((snaphot) => {
-    const expenses = []
-    snaphot.forEach((child) => {
-        expenses.push({
-            id:child.id,
-            ...child.val()
-        })    
-    })
-    console.log(expenses)
-}), (e) => {
-    console.log('Unable to get the data ', e)
-})
+// database.ref('expenses')
+// .on('value', ((snaphot) => {
+//     const expenses = []
+//     snaphot.forEach((child) => {
+//         expenses.push({
+//             id:child.id,
+//             ...child.val()
+//         })    
+//     })
+//     console.log(expenses)
+// }), (e) => {
+//     console.log('Unable to get the data ', e)
+// })
+
+
+
 
 // database.ref('expenses')
 //   .once('value')
