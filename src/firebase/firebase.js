@@ -118,16 +118,111 @@ const database = firebase.database()
 
 
 
-const onValueChange = database.ref()
-  .on('value', (snapshot)=> {
-      const val =  snapshot.val()
-    console.log(`${val.name} is a ${val.job.title} at ${val.job.company} living in ${val.location.city}`)
-  }, (e)=> {
-    console.log('Error with the data fetching ! ', e)
-  })
+// const onValueChange = database.ref()
+//   .on('value', (snapshot)=> {
+//       const val =  snapshot.val()
+//     console.log(`${val.name} is a ${val.job.title} at ${val.job.company} living in ${val.location.city}`)
+//   }, (e)=> {
+//     console.log('Error with the data fetching ! ', e)
+//   })
 
-  setTimeout(() => {
-    database.ref().update({
-        'location/city' : 'Brooklyn'
+//   setTimeout(() => {
+//     database.ref().update({
+//         'location/city' : 'Brooklyn'
+//     })
+//   }, 5000 )
+
+
+// database.ref('notes').push({
+//     title: ' Course Topics',
+//     body: 'React Native, Angular, Python'
+// })
+
+
+// const firebaseNotes = {
+//     notes : {
+//         '12': {
+//             title: 'first note',
+//             body: 'This is my note'
+//         },
+//         '14': {
+//             title: 'first note',
+//             body: 'This is my note'
+//         }
+//     }
+// }
+
+// const notes = [{
+//     id: '12',
+//     title: 'First Note', 
+//     body:'This is my note'
+// },
+// {
+//     id: '14',
+//     title: 'Second Note', 
+//     body:'This is my 2nd note'
+// }]
+
+// database.ref('notes').set(notes)
+
+// database.ref('notes/12')
+
+// database.ref('notes/-LVuw7yUMPUoTwOaFODX').update({
+//     body: 'Buy Food'
+// })
+
+// database.ref('expenses').push({
+//     description:'Rent',
+//     note: 'Rent for Jan 2019',
+//     amount : 103456,
+//     createdAt: 345675545674
+// })
+
+// database.ref('expenses').push({
+//     description:'Electricity Bill',
+//     note: 'Electric for Jan 2019',
+//     amount : 8440,
+//     createdAt: 345675545677
+// })
+
+// database.ref('expenses').push({
+//     description:'Gas Bill',
+//     note: 'Gas Bill for Jan 2019',
+//     amount : 2460,
+//     createdAt: 345675545689
+// })
+
+
+database.ref('expenses')
+.on('value', ((snaphot) => {
+    const expenses = []
+    snaphot.forEach((child) => {
+        expenses.push({
+            id:child.id,
+            ...child.val()
+        })    
     })
-  }, 5000 )
+    console.log(expenses)
+}), (e) => {
+    console.log('Unable to get the data ', e)
+})
+
+// database.ref('expenses')
+//   .once('value')
+//   .then((snapshot) => {
+//         // const val = snapshot.val()
+//         // console.log(val)
+//         const expenses = []
+//         snapshot.forEach((child) => {
+//             // console.log('Data --- ', child.key)
+//             // console.log('Data --- ', child.val())
+//             expenses.push({
+//                 id:child.key,
+//                 ...child.val()
+//             })
+//         });
+//         console.log(expenses)
+//   })
+//   .catch((e) => {
+//         console.log('Cannot fetch the data - ', e)
+//   })
