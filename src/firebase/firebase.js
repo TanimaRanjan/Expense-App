@@ -73,9 +73,61 @@ const database = firebase.database()
 //     'job/C'
 // })
 
-database.ref().update({
-    name: 'Tanima Romero',
-    stressLevel: 9,
-    'job/company': 'Amazon',
-    'location/city':'Brooklyn'
-})
+// database.ref().update({
+//     name: 'Tanima Romero',
+//     stressLevel: 9,
+//     'job/company': 'Amazon',
+//     'location/city':'Brooklyn'
+// })
+
+
+// database.ref()
+//     .once('value')
+//     .then((snapshot) => {
+//         const val = snapshot.val()
+//         console.log(val)
+//     })
+//     .catch((e) => {
+//         console.log('Error Fetching data ',e)
+//     })
+
+
+// const onValueChange = database.ref()
+//     .on('value', (snapshot) => {
+//         console.log(snapshot.val())
+//     }, (e) => {
+//         console.log('Error with data fetching ', e)
+//     })
+    
+// setTimeout(() => {
+//     database.ref().update({
+//         stressLevel: 7
+//     })
+// }, 5000)    
+
+// setTimeout(() => {
+//     database.ref().off(onValueChange)
+// }, 8000)  
+
+
+// setTimeout(() => {
+//     database.ref().update({
+//         stressLevel: 5
+//     })
+// }, 15000)  
+
+
+
+const onValueChange = database.ref()
+  .on('value', (snapshot)=> {
+      const val =  snapshot.val()
+    console.log(`${val.name} is a ${val.job.title} at ${val.job.company} living in ${val.location.city}`)
+  }, (e)=> {
+    console.log('Error with the data fetching ! ', e)
+  })
+
+  setTimeout(() => {
+    database.ref().update({
+        'location/city' : 'Brooklyn'
+    })
+  }, 5000 )
