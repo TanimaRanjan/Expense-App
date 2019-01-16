@@ -38,10 +38,14 @@ test('Should set up add expense action object ', () => {
 
 test('Should add expense to Database and store', () => {
     const store = createMockStore({})
-    const expenseData = {description:'Rent',note:'Month rent', amount:110234, createdAt:1234567}
+    const expenseData = {description:'Rent',note:'Month rent', amount:110234, createdAt:12345673}
     
-    store.dispatch(startAddExpense(expenseData))
-        .then(() => {
+    // console.log(store.dispatch(startAddExpense(expenseData)))
+
+    store.dispatch(startAddExpense(expenseData)).then(() => {
+
+        console.log('Inside then')  
+        const actions = store.getActions()
             expect(actions[0]).toEqual({
                 type: 'ADD_EXPENSE', 
                 expense : {
@@ -49,16 +53,37 @@ test('Should add expense to Database and store', () => {
                     ...expenseData
                 }
             });
-            database.ref(`expenses/${actions[0].expense.id}`).once('value').then((snapshot) => {
-                expect(snapshot.val()).toEqual(expenseData)
-                done();
-            })
             
+            return database.ref(`expenses/${actions[0].expense.id}`).once('value')
+            
+        }).then((snapshot) => {
+            expect(snapshot.val()).toEqual(expenseData)
+            done();
         })
 }) 
 
 test('Should add expense with defaults to Database and store', () => {
-    
+    const store = createMockStore({})
+    const expenseData = {description:'',note:'', amount:0, createdAt:0}
+
+    store.dispatch(startAddExpense(expenseData)).then(() => {
+
+        console.log('Inside then')  
+        const actions = store.getActions()
+            expect(actions[0]).toEqual({
+                type: 'ADD_EXPENSE', 
+                expense : {
+                    id: expect.any(String),
+                    ...expenseData
+                }
+            });
+            
+            return database.ref(`expenses/${actions[0].expense.id}`).once('value')
+            
+        }).then((snapshot) => {
+            expect(snapshot.val()).toEqual(expenseData)
+            done();
+        })
 }) 
 
 
@@ -75,8 +100,3 @@ test('Should add expense with defaults to Database and store', () => {
 //     }
 //     })
 // })
-
-
-
-
-// {description='', note='', amount=0, createdAt=0}
