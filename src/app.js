@@ -11,7 +11,7 @@ import '../node_modules/normalize.css/normalize.css'
 import '../public/styles/styles.scss'
 import 'react-dates/lib/css/_datepicker.css'
 
-import './firebase/firebase'
+import {firebase} from './firebase/firebase'
 
 // import './playground/promises'
 
@@ -38,17 +38,11 @@ store.dispatch(startSetExpenses()).then(() => {
     ReactDOM.render(jsx, document.getElementById('app'));
 })
 
+firebase.auth().onAuthStateChanged((user) => {
+    if(user) {
+        console.log('Log in')
+    } else {
+        console.log('Log out')
+    }
+})
 
-
-// const redux = require('./playground/hoc.js')
-// store.dispatch(addExpense({description:"Coffee", amount:3990, note:"Gas bill for Nov 2018", createdAt:4100}))
-// store.dispatch(addExpense({description:"Cell Bill", amount:3050, note:"Gas bill for Nov 2018", createdAt:4600}))
-// store.dispatch(addExpense({description:"Electric Bill", amount:2350, note:"Gas bill for Nov 2018", createdAt:1100}))
-
-// store.dispatch(setTextFilter('bill'))
-// setTimeout(() => {
-//     store.dispatch(setTextFilter('water'))
-// }, 3000)
-
-// const date =  moment()
-// console.log(date.format())
