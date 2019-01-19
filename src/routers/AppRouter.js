@@ -6,7 +6,7 @@ import HelpPage from '../components/HelpPage'
 import EditExpensePage from '../components/EditExpensePage'
 import AddExpensePage from '../components/AddExpensePage'
 import ExpenseDashBoardPage from '../components/ExpenseDashBoardPage'
-import { LoginPage } from '../components/LoginPage';
+import LoginPage from '../components/LoginPage';
 
 
 const AppRouter = () => (
