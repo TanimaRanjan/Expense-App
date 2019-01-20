@@ -1,5 +1,6 @@
 import React from 'react'
-import {BrowserRouter, Route, Switch, Link, NavLink} from 'react-router-dom'
+import {Router, Route, Switch, Link, NavLink} from 'react-router-dom'
+import createHistory from 'history/createBrowserHistory'
 import Header from '../components/Header'
 import NotFoundPage from '../components/NotFoundPage'
 import HelpPage from '../components/HelpPage'
@@ -8,21 +9,22 @@ import AddExpensePage from '../components/AddExpensePage'
 import ExpenseDashBoardPage from '../components/ExpenseDashBoardPage'
 import LoginPage from '../components/LoginPage';
 
+export const history = createHistory();
 
 const AppRouter = () => (
-    <BrowserRouter>
-    <div>
-        <Header />
-        <Switch>
-            <Route path="/" component={LoginPage} exact={true}/>
-            <Route path="/dashboard" component={ExpenseDashBoardPage} />
-            <Route path="/create" component={AddExpensePage}/>
-            <Route path="/edit/:id" component={EditExpensePage}/>
-            <Route path="/help" component={HelpPage}/>
-            <Route component={NotFoundPage}/>
-        </Switch>
-    </div>
-</BrowserRouter>
+    <Router history={history}>
+        <div>
+            <Header />
+            <Switch>
+                <Route path="/" component={LoginPage} exact={true}/>
+                <Route path="/dashboard" component={ExpenseDashBoardPage} />
+                <Route path="/create" component={AddExpensePage}/>
+                <Route path="/edit/:id" component={EditExpensePage}/>
+                <Route path="/help" component={HelpPage}/>
+                <Route component={NotFoundPage}/>
+            </Switch>
+        </div>
+    </Router>
 );
 
 export default AppRouter;
