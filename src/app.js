@@ -4,8 +4,7 @@ import {Provider } from 'react-redux'
 import AppRouter, { history } from './routers/AppRouter'
 import configureStore from './store/configureStore'
 import { startSetExpenses } from  './actions/expenses'
-// import { setTextFilter, sortbyAmount, sortbyDate, setStartDate, setEndDate } from './actions/filters'
-import  getVisibleExpenses  from './selectors/expense'
+import { login, logout } from './actions/auth'
 
 import '../node_modules/normalize.css/normalize.css'
 import '../public/styles/styles.scss'
@@ -16,11 +15,11 @@ import {firebase} from './firebase/firebase'
 const store = configureStore();
 const jsx = (
     <Provider store={store}>
-    <AppRouter />
+        <AppRouter />
     </Provider>
 )
 
-var hasRendered = false;
+let hasRendered = false;
 
 const renderApp = () => {
     if(!hasRendered) {
@@ -34,13 +33,17 @@ ReactDOM.render(<p>Loading ...</p>, document.getElementById('app'));
 
 firebase.auth().onAuthStateChanged((user) => {
     if(user) {
+        store.dispatch(login(user.uid))
         store.dispatch(startSetExpenses()).then(() => {
             renderApp()
+            if (history.location.pathname === '/') {
+                history.push('/dashboard')
+            }
         })
         
     } else {
+        store.dispatch(logout())
         renderApp()
         history.push('/')
     }
 })
-
