@@ -1,8 +1,6 @@
-import uuid from 'uuid/v4'
 import database from '../firebase/firebase'
 
 // ADD_EXPENSE 
-// Need to return someithng. - You can replace return with ({}) 
 export const addExpense = (expense) => ({
     type: 'ADD_EXPENSE', 
     expense
@@ -18,7 +16,6 @@ export const startAddExpense = (expenseData = {}) => {
             createdAt=0
         } = expenseData
 
-        
         const expense = {
             description,
             note,
@@ -64,8 +61,8 @@ export const editExpense = (id, updates) => ({
     updates
 })
 
+// Start Edit Expenses 
 export const startEditExpense = (id, updates) => {
-
     return (dispatch, getState)  => {
         const uid = getState().auth.uid
         return database.ref(`users/${uid}/expenses/${id}`).update({
@@ -82,6 +79,7 @@ export const setExpenses = (expenses) => ({
     expenses
 })
 
+// Start set Expenses 
 export const startSetExpenses = () => {
     return (dispatch, getState) => {
         const uid = getState().auth.uid
@@ -96,7 +94,5 @@ export const startSetExpenses = () => {
             })
             dispatch(setExpenses(expenses))
         })
-
-        // type : 'START_SET_EXPENSES'
     }
 }
