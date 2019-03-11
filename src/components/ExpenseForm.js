@@ -1,10 +1,6 @@
-
 import React from 'react'
 import moment from 'moment'
 import { SingleDatePicker } from 'react-dates'
-
-// import ThemedStyleSheet from 'react-with-styles/lib/ThemedStyleSheet';
-import uuid from 'uuid/v4'
 
 class ExpenseForm extends React.Component {
     constructor(props) {
@@ -60,8 +56,6 @@ class ExpenseForm extends React.Component {
                 note:this.state.note
             })
         }
-    
-
     }
 
     render() {
