@@ -16,7 +16,6 @@ const ExpenseListItem = ({id, description, amount, createdAt}) => (
             {numeral(amount / 100).format('$0,0.00')} 
         </h3>
     </Link>
-
 )
 
 export default ExpenseListItem;
