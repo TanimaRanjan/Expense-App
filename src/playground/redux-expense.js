@@ -174,7 +174,6 @@ store.dispatch(setTextFilter(''))
 
 store.dispatch(sortbyAmount())
 // store.dispatch(sortbyDate())
-
 // store.dispatch(setStartDate(-900))
 // store.dispatch(setStartDate())
 // store.dispatch(setEndDate(1200))
@@ -200,9 +199,8 @@ const demoState = {
 
 
 // const store = createStore(reducer)
-
 // const user = {
-//     name:'Tanima',
+//     name:'xxxx',
 //     age:36
 // }
 // console.log({...user, location:'New York'})
