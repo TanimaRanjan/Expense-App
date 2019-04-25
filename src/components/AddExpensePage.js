@@ -13,7 +13,9 @@ export class AddExpensePage extends React.Component {
             <div>
                 <div className='page-header'>
                     <div className='content-container'>
-                        <h1 className='page-header__title'>Add Expense</h1>
+                        <h1 className='page-header__title'>
+                            Add Expense
+                        </h1>
                     </div>
                 </div>
                 <div className='content-container'>
@@ -26,7 +28,8 @@ export class AddExpensePage extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    startAddExpense: (expense) => dispatch(startAddExpense(expense))
+    startAddExpense: (expense) 
+        => dispatch(startAddExpense(expense))
 })
 
 export default connect(undefined, mapDispatchToProps)(AddExpensePage);
