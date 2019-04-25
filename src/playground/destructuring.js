@@ -37,10 +37,10 @@
 const address = ['177 Bleeker Street' , 'New York' , 'New York', '10120']
 
 // const [street, city, state, zip] = address
+
 const [, city, state='NY' ] = address
 
 console.log(`You are in ${city}, ${state}`)
-
 
 const items = ['Coffee (hot)', '$2.00', '$2.50', '$2.75']
 
@@ -48,4 +48,3 @@ const items = ['Coffee (hot)', '$2.00', '$2.50', '$2.75']
 const [item,  , medium] = items
 
 console.log(`A medium ${item} costs ${medium}`)
-
